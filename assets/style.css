@@ -6,28 +6,36 @@ body {
 }
 
 .post {
+  position: relative;
+  overflow: hidden;
   width: 350px;
   height: 400px;
   background-color: #fefefe;
-  position: relative;
-  overflow: hidden;
   box-shadow: 0px 0px 0em rgb(87, 87, 87);
   transition: box-shadow 0.5s;
+  margin: 10px;
+}
+.post-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .post-date {
   position: absolute;
-  z-index: 1;
   overflow: visible;
   top: 10px;
   right: 10px;
+  z-index: 1;
   text-align: center;
   width: 75px;
   height: 75px;
   border-radius: 50%;
   display: inline-block;
   background-color: #e74c43;
+  line-height: 0.4em;
 }
 .post-date p {
+  position: relative;
   font-size: large;
   font-weight: bold;
   color: #f1f1f1;
@@ -49,9 +57,6 @@ body {
   position: absolute;
   top: 0;
 }
-.post-title h1, .post-title h2 {
-  margin-left: 25px;
-}
 .post-title h1 {
   top: 0;
   color: #323e3c;
@@ -62,28 +67,30 @@ body {
   font-size: x-large;
   font-stretch: condensed;
 }
+.post-title h1, .post-title h2 {
+  margin-left: 25px;
+}
 .post-preview {
   position: relative;
-  height: 10px;
+  bottom: 0;
   margin-left: 25px;
   margin-right: 25px;
-  bottom: 0;
   font-size: large;
   line-height: 1.375em;
-  transition: all 0.5s;
-  transition: opacity 0.5s;
   opacity: 0;
   color: #716c6d;
+  transition: all 0.5s;
+  transition: opacity 0.5s;
 }
 .post-content {
+  background-color: #fefefe;
   position: relative;
   overflow: visible;
   bottom: 0;
+  margin-top: 0px;
   width: 100%;
-  margin-top: -1px;
   height: 300px;
   transition: margin-top 0.5s;
-  background-color: #fefefe;
 }
 .post-photo {
   position: relative;
@@ -91,33 +98,33 @@ body {
   width: 25%;
 }
 .post-photo p {
-  font-size: large;
-  font-weight: bold;
-  color: #f1f1f1;
   position: absolute;
   height: 30px;
   width: 100%;
-  background-color: #e74c43;
   padding-top: 20px;
-  margin-top: -45px;
   padding-left: 10px;
+  margin-top: -45px;
+  font-size: large;
+  font-weight: bold;
+  color: #f1f1f1;
+  background-color: #e74c43;
 }
 .post-footer {
-  display: flex;
-  flex-direction: row;
+  position: absolute;
+  bottom: 0;
   height: 20px;
   width: 100%;
-  margin: 0px;
-  padding: 0px;
   margin-top: 50px;
   margin-left: 15px;
   margin-bottom: -15px;
+  margin-right: 0px;
   padding-top: 29px;
   padding-bottom: 25px;
   padding-left: 10px;
-  position: absolute;
-  bottom: 0;
+  padding-right: 0px;
   background-color: #fefefe;
+  display: flex;
+  flex-direction: row;
 }
 .post-footer-element {
   display: flex;

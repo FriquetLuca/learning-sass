@@ -1,11 +1,15 @@
 // Content
 $line-height: 0.55em;
 $font-weight: 400px;
+$horizontalMarginContent: 15px;
+$actualBackgroundColor: #f1f1f1;
 // Post
 $postBackgroundColor: #fefefe;
 $postTitleColor: #323e3c;
 $postSubtitleColor: #e74c43;
 $postContentColor: #716c6d;
+$postFooterPadding: 25px;
+$postDateCircleSize: 75px;
 $commentColor: #9b9a98;
 $iconSize: 16px;
 $iconMargin: 5px;
@@ -14,33 +18,44 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: $line-height;
     font-weight: $font-weight + 50;
-    background-color: #f1f1f1;
+    background-color: $actualBackgroundColor;
 }
 
 .post {
+    position: relative;
+    overflow: hidden;
     width: 350px;
     height: 400px;
     background-color: $postBackgroundColor;
-    position: relative;
-    overflow: hidden;
     box-shadow: 0px 0px 0em rgb(87, 87, 87);
     transition: box-shadow 0.5s;
+    margin: 10px;
+    &-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
     &-date {
         position: absolute;
-        z-index: 1;
         overflow: visible;
         top: 10px;
         right: 10px;
+        z-index: 1;
         text-align: center;
-        width: 75px;
-        height: 75px;
+        width: $postDateCircleSize;
+        height: $postDateCircleSize;
         border-radius: 50%;
         display: inline-block;
         background-color: $postSubtitleColor;
+        line-height: $line-height - 0.15em;
+
         p {
-            font-size: large;
-            font-weight: bold;
-            color: #f1f1f1;
+            position: relative;
+            font: {
+                size: large;
+                weight: bold;
+            }
+            color: $actualBackgroundColor;
         }
     }
     &-picture {
@@ -59,11 +74,9 @@ body {
         }
     }
     &-title {
+        // Position
         position: absolute;
         top: 0;
-        h1, h2 {
-            margin-left: 25px;
-        }
         h1 {
             top: 0;
             color: $postTitleColor;
@@ -71,82 +84,98 @@ body {
         h2 {
             color: $postSubtitleColor;
             line-height: $line-height * 1;
-            font-size: x-large;
-            font-stretch: condensed;
+            font: {
+                size: x-large;
+                stretch: condensed;
+            }
+        }
+        h1, h2 {
+            margin-left: $horizontalMarginContent + 10px;
         }
     }
     &-preview {
         position: relative;
-        height: 10px;
-        margin-left: 25px;
-        margin-right: 25px;
         bottom: 0;
+        margin: {
+            left: $horizontalMarginContent + 10px;
+            right: $horizontalMarginContent + 10px;
+        }
         font-size: large;
         line-height: $line-height * 2.5;
-        transition: all 0.5s;
-        transition: opacity 0.5s;
         opacity: 0;
         color: $postContentColor;
+        transition: all 0.5s;
+        transition: opacity 0.5s;
     }
     &-content
     {
+        background-color: $postBackgroundColor;
         position: relative;
         overflow: visible;
         bottom: 0;
+        margin-top: 0px;
         width: 100%;
-        margin-top: -1px;
         height: 300px;
         transition: margin-top 0.5s;
-        background-color: $postBackgroundColor;
     }
     &-photo {
         position: relative;
         z-index: 1;
         width: 25%;
         p {
-            font-size: large;
-            font-weight: bold;
-            color: #f1f1f1;
             position: absolute;
             height: 30px;
             width: 100%;
-            background-color: $postSubtitleColor;
-            padding-top: 20px;
+            padding: {
+                top: 20px;
+                left: 10px;
+            }
             margin-top: -45px;
-            padding-left: 10px;
+            font-size: large;
+            font-weight: bold;
+            color: #f1f1f1;
+            background-color: $postSubtitleColor;
         }
     }
     &-footer {
-        display: flex;
-        flex-direction: row;
-        height: 20px;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        margin-top: 50px;
-        margin-left: 15px;
-        margin-bottom: -15px;
-        padding-top: 4px + 25px;
-        padding-bottom: 25px;
-        padding-left: 10px;
         position: absolute;
         bottom: 0;
+        height: 20px;
+        width: 100%;
+        margin: {
+            top: 50px;
+            left: $horizontalMarginContent;
+            bottom: -15px;
+            right: 0px;
+        }
+        padding: {
+            top: 4px + $postFooterPadding;
+            bottom: $postFooterPadding;
+            left: 10px;
+            right: 0px;
+        }
         background-color: $postBackgroundColor;
+        // Flex
+        display: flex;
+        flex-direction: row;
+
         &-element {
             display: flex;
             flex-flow: row wrap;
             p {
-                margin: 0;
-                margin-left: $iconMargin;
-                margin-right: 2 * $iconMargin;
+                margin: 0 {
+                    left: $iconMargin;
+                    right: 2 * $iconMargin;
+                }
                 padding: 0;
                 color: $commentColor;
             }
             &-time, &-comment {
                 width: $iconSize;
                 height: $iconSize;
-                margin: 0;
-                margin-top: -4px;
+                margin: 0 {
+                    top: -4px;
+                }
                 padding: 0;
                 background-repeat: no-repeat;
             }
