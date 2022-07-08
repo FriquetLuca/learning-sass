@@ -47,11 +47,14 @@ body {
 .post-title h1 {
   top: 0;
   color: #323e3c;
+  line-height: 0.0825em;
+  font-size: x-large;
+  font-stretch: condensed;
 }
 .post-title h2 {
   color: #e74c43;
-  line-height: 0.55em;
-  font-size: x-large;
+  line-height: 0.0825em;
+  font-size: large;
   font-stretch: condensed;
 }
 .post-title h1, .post-title h2 {
@@ -138,12 +141,13 @@ body {
   margin-top: -4px;
   padding: 0;
   background-repeat: no-repeat;
+  background-size: 16px;
 }
 .post-footer-element-time {
-  background-image: url("img/time.png");
+  background-image: url("img/opensource-time.png");
 }
 .post-footer-element-comment {
-  background-image: url("img/comments.png");
+  background-image: url("img/opensource-comments.png");
 }
 .post:hover {
   box-shadow: 0px 0px 1em black;

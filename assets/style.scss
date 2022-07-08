@@ -47,6 +47,7 @@ body {
         display: flex;
         flex-flow: row wrap;
     }
+    //:nth-child(1)
     &-date {
         position: absolute;
         overflow: visible;
@@ -77,12 +78,17 @@ body {
         h1 {
             top: 0;
             color: $postTitleColor;
+            line-height: $line-height * 0.15;
+            font: {
+                size: x-large;
+                stretch: condensed;
+            }
         }
         h2 {
             color: $postSubtitleColor;
-            line-height: $line-height * 1;
+            line-height: $line-height * 0.15;
             font: {
-                size: x-large;
+                size: large;
                 stretch: condensed;
             }
         }
@@ -187,15 +193,16 @@ body {
                 }
                 padding: 0;
                 background-repeat: no-repeat;
+                background-size: $iconSize;
                 @if $dark-theme {
                     filter: brightness(20%);
                 }
             }
             &-time {
-                background-image: url('img/time.png');
+                background-image: url('img/opensource-time.png');
             }
             &-comment {
-                background-image: url('img/comments.png');
+                background-image: url('img/opensource-comments.png');
             }
         }
     }
